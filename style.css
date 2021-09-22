@@ -1,0 +1,28 @@
+body {
+    position: relative;
+    
+}
+table {
+    width: 75%;
+    text-align: center;
+
+}
+
+th {
+    height: 40px;
+    background-color: teal;
+    color: white;
+}
+
+td {
+    height: 25px;
+}
+
+td:hover {
+    background-color: yellow;
+}
+
+table, th, td {
+    border: thin solid black;
+    border-collapse: collapse;
+}
