@@ -54,7 +54,6 @@ Stand.prototype.tableRender = function () {
   rowEl.appendChild(overallSalesEl);
 
   tableBodyEl.appendChild(rowEl);
-
 };
 
 let seattle = new Stand('Seattle', 23, 65, 6.3);
@@ -98,7 +97,6 @@ function tableHeader(){
 tableHeader();
 
 function tableFooter(){
-
   let rowEl = document.createElement('tr');
 
   let blankCell = document.createElement('td');

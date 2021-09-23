@@ -1,7 +1,4 @@
-body {
-    position: relative;
-    
-}
+
 table {
     width: 75%;
     text-align: center;
@@ -25,4 +22,68 @@ td:hover {
 table, th, td {
     border: thin solid black;
     border-collapse: collapse;
+}
+
+body {
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#topbar {
+    background-color: darkorange;
+}
+h1 {
+    padding-top: 30px;
+}
+nav ul {
+    display: inline-block;
+    padding: 0px;
+    margin-bottom: 30px;
+}
+.navbar {
+    display: inline-block;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 30;
+}
+
+#stores {
+    width: 100%;
+}
+
+.locations {
+    width: 210px;
+    height: 92px;
+    margin-left: 15px;
+    margin-right:15px;
+    margin-bottom:30px;
+    background-color: lightcyan;
+    display: inline-block;
+}
+
+.locations ul {
+    padding-top: 10px;
+    padding-bottom:10px;
+    padding-left:5px;
+    padding-right: 5px;
+    display: inline-block;
+}
+
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: darkorange;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+}
+
+#hours {
+    padding-top: 15px;
+    padding-bottom: 16px;
+}
+
+ul {
+    margin: 0;
+    list-style-type: none;
+    padding-bottom: 15px
 }
