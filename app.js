@@ -23,8 +23,8 @@ Stand.prototype.cookiesSold = function() {
 
   for (let i = 0; i < hours.length; i++){
 
-    let customerAmt = generateCust(this.minCustomer, (this.maxCustomer * projectedModifiers[i]));
-    let hourlySales = Math.floor(customerAmt * this.avgCookieSale);
+    let customerAmt = generateCust(this.minCustomer, this.maxCustomer);
+    let hourlySales = Math.floor(customerAmt * this.avgCookieSale * projectedModifiers[i]);
     this.salesTotal = this.salesTotal + hourlySales;
     this.salesResult.push(hourlySales);
 
@@ -97,7 +97,9 @@ function tableHeader(){
 tableHeader();
 
 function tableFooter(){
+
   let rowEl = document.createElement('tr');
+  rowEl.setAttribute("id", "bottomrow");
 
   let blankCell = document.createElement('td');
   blankCell.innerText = 'Total';
@@ -121,3 +123,50 @@ function tableFooter(){
   tableFootEl.appendChild(rowEl);
 }
 tableFooter();
+
+function renderAll () {
+  for (let i = 0; i < Stand.all.length; i++){
+    Stand.all[i].tableRender();
+  }
+  tableFootEl.innerHTML='';
+  tableFooter();
+}
+
+let newStandFormEl = document.getElementById('makestand');
+
+function standCreation(event) {
+
+  event.preventDefault();
+  let city = event.target.location.value;
+  let minCustomer = event.target.minCust.value;
+  let maxCustomer = event.target.maxCust.value;
+  let avgCookieSale = event.target.avgCook.value;
+
+  for (let i = 0; i < Stand.all.length; i++) {
+    if (city === Stand.all[i].city) {
+      Stand.all[i].minCustomer = minCustomer;
+      Stand.all[i].maxCustomer = maxCustomer;
+      Stand.all[i].avgCookieSale = avgCookieSale;
+      Stand.all[i].salesResult = [];
+      Stand.all[i].salesTotal = 0;
+      Stand.all[i].cookiesSold();
+      tableBodyEl.innerHTML='';
+      renderAll();
+      return;
+    }
+  }
+
+  let newStand = new Stand(city, minCustomer, maxCustomer, avgCookieSale);
+
+  console.log(newStand);
+  newStand.cookiesSold();
+  newStand.tableRender();
+
+  tableFootEl.innerHTML=''; //more elegant than what i came up with below
+  // let rowEl = document.getElementById('bottomrow');
+  // tableFootEl.removeChild(rowEl);
+  tableFooter();
+
+}
+
+newStandFormEl.addEventListener('submit', standCreation);

@@ -5,14 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href="style.css"></link>
+    <link rel='stylesheet' href="style.css">
 </head>
 <body>
-    <table id="salestable">
-        <thead id="head"></thead>
-        <tbody id="body"></tbody>
-        <tfoot id="foot"></tfoot>
-    </table>
+    <main>
+        <table id="salestable">
+            <thead id="head"></thead>
+            <tbody id="body"></tbody>
+            <tfoot id="foot"></tfoot>
+        </table>
+        <form id="makestand">
+            <fieldset>
+                <legend>New Stand</legend>
+                <label>City</label>
+                <input name="location" type="text" required>
+                <label>Minimum Customers</label>
+                <input name="minCust" type="number" required>
+                <label>Maximum Customers</label>
+                <input name="maxCust" type="number" required>
+                <label>Average Cookies per Customer</label>
+                <input name="avgCook" type="number" step="0.1" required>
+                <button>Create</button>
+            </fieldset>
+        </form>
+    </main>
     <script src="app.js"></script>
 </body>
 
